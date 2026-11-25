@@ -15,6 +15,7 @@ LINE = "We voted to ban reply-all, so someone emailed all 400 of us to announce 
 
 
 def main() -> None:
+    assert len(LINE) <= 200, f"entry is {len(LINE)} chars, over the 200-char gate"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(LINE)
